@@ -17,5 +17,5 @@ jobs:
           echo $PR_NUMBER > ./pr/pr_number
       - uses: actions/upload-artifact@v3
         with:
-          name: pr_number
+          name: dev_artifact
           path: pr/
