@@ -3,23 +3,12 @@ on:
   push:
     branches:
     - main
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to run tests against'
-        type: string
-        required: true 
-        default: prod
 jobs:
   build_staging:
     runs-on: ubuntu-18.04
     environment:
       name: staging
-  print_env:
-    runs-on: ubuntu-18.04
-    steps:  
-    - name: Print env $prod
-      run: echo  The env ${{ inputs.environment }} 
+   steps:
     - uses: actions/checkout@v2 
     - name: install node.js
       uses: actions/setup-node@v1
