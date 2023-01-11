@@ -5,7 +5,7 @@ on:
     - main
 jobs:
   build_staging:
-    runs:on: ubuntu_latest
+    runs-on: ubuntu_latest
     environment:
       name: staging
     steps: 
