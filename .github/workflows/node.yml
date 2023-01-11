@@ -1,0 +1,17 @@
+name: frontend 
+on:
+  push
+  - main
+jobs:
+   build_staging:
+      runs:on: ubuntu_latest
+      environment:
+        name: staging
+      steps: 
+        - uses: actions/checkout@v2
+        - name: build
+        - name: install node.js
+        - uses: actions/setup-node@v2
+        with:
+           node-version: 10.x
+   
