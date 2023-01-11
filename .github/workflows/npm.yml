@@ -22,3 +22,4 @@ jobs:
            json semantic-release@16  \
            semantic-release/exec
       semantic-release --dry-run
+      
