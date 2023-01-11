@@ -1,0 +1,24 @@
+name: frontend 
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build_staging:
+    runs-on: ubuntu-18.04
+    environment:
+      name: staging
+    steps: 
+    - uses: actions/checkout@v2 
+    - name: install node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - name: install npm and define version
+     shell: bash
+     run: |
+       npm install
+       npm run -g @angular/cli@10.2.16     \
+           json semantic-release@16  \
+           semantic-release/exec
+      semantic-release --dry-run
