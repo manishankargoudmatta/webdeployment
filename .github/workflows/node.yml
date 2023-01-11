@@ -9,9 +9,9 @@ jobs:
      environment:
        name: staging
      steps: 
-       - uses: actions/checkout@v2 
+         uses: actions/checkout@v2 
        - name: install node.js
-       - uses: actions/setup-node@v1
+         uses: actions/setup-node@v1
          with:
            node-version: 10.x
            
