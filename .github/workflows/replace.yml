@@ -1,0 +1,26 @@
+name: frontend 
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build_staging:
+    runs-on: ubuntu-18.04
+    environment:
+      name: staging
+    steps: 
+    - uses: actions/checkout@v2 
+    - name: install node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - name: Replace tokens
+      uses: actions/checkout@v2
+      with:
+        encoding: auto
+        writebom: true
+        verbosity: detailed
+        actiononmissing: warn
+        keeptoken: false
+        tokenPrefix: '#{'
+        tokenSuffix: '}#'   
