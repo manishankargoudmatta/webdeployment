@@ -1,7 +1,8 @@
 name: frontend 
 on:
-  push
-  - main
+  push:
+    branches:
+    - main
 jobs:
    build_staging:
      runs:on: ubuntu_latest
