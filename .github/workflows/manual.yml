@@ -1,0 +1,25 @@
+name: frontend 
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build_staging:
+    runs-on: ubuntu-18.04
+    environment:
+      name: staging
+    steps: 
+    - uses: actions/checkout@v3 
+    - name: set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node_vertion: 14         
+    - name: install npm and define version
+      shell: bash
+      run: |
+        npm install
+    - name: Launch npm script
+      shell: bash
+      run: |
+        npm ci
+        npm run test
