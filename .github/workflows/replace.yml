@@ -23,4 +23,13 @@ jobs:
         actiononmissing: warn
         keeptoken: false
         tokenPrefix: '#{'
-        tokenSuffix: '}#'   
+        tokenSuffix: '}#' 
+   - name: install npm and define version
+     shell: bash
+     run: |
+       npm install
+       npm run -g @angular/cli@10.2.16     \
+           json semantic-release@16  \
+           semantic-release/exec
+      semantic-release --dry-run
+            
