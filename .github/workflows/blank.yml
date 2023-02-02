@@ -1,0 +1,20 @@
+jobs:
+  docker-build:
+    name: Docker build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: |
+          docker build -t foo/bar:$GITHUB_SHA
+          mkdir -p path/to/artifacts
+          docker save foo/bar:$GITHUB_SHA > path/to/artifacts/docker-image.tar
+          
+      - name: Temporarily save Docker image
+        uses: actions/upload-artifact@v2
+        with:
+          name: docker-artifact
+          path: path/to/artifacts
+          retention-days: 1
